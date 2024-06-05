@@ -1,0 +1,239 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+
+body {
+    position: absolute;
+    background-color: #32a8a4;
+    margin: 0
+}
+
+.pai-container {                                  /*configurações da div maior*/
+    background-color: #32a8a4;
+    width: 100%;
+    height: 70%;
+    margin: 7.5% 0 0;
+    position: absolute;
+}
+
+
+.filho-container {                                /* configurações da div de dentro da maior */
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #e1f2f2;
+    width: 62.50%;
+	height: 95.34%;
+    margin-top: 0.8%;
+    margin-left: auto;
+    margin-right: auto; 
+    position: relative;                           /*minha div vai estar onde eu definir*/
+    border-radius: 1em;
+
+}
+
+.cabecalho-do-filho {
+    display: flex;                                 /*os itens dentro da div sem sobrepoem, não se afastam, exceto pelo padding de cada um*/
+    width: 100%;                                   /*largura da div*/
+	height: 10%;                                   /*algura da div*/
+    background-color: #87c2c2;                   /*cor de fundo da div*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);  /*sombra a div que contem o texto*/
+    justify-content: center;                       /* tudo que for inserido dentro da minha div ficara centralizado dentro dela*/
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+}
+
+.minha-agenda {                                    /* configurações do titulo da agenda*/
+    color: #294746;
+    font-size: 4vw;
+    font-size: 4vh;
+    padding-top: 0.6%;
+    padding-bottom: 0.5%;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500px;
+}
+
+.container-pai-campo-de-busca {
+    margin-top: 2.5%;
+    width: 100%;                                   
+	height: 10%;
+    display: flex;
+    align-items: center;
+    background-color: #e1f2f2;
+    justify-content: center; 
+}
+.container-filho-campo-de-busca {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #e1f2f2;
+    width: 35%;                                   
+	height: 38%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0.5px 0 0;
+    border: 0 none #000;
+}
+
+.container-filho-campo-de-busca input {
+    font-size: 90%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    background-color: #e1f2f2;
+    width: 85%;                                   
+	height: 95%;
+    border: 0 none #000;
+    outline: 0;
+}
+
+.container-filho-campo-de-busca button {
+    border: none;
+    background-color: #e1f2f2;
+    width: 15%;                                   
+	height: 102%;
+}
+#lupaIcone{
+    width: 5%;                                   
+	height: 5%;
+}
+
+.container-listagem {
+
+    width: 100%;                                   
+	height: 59%;
+  
+}
+
+
+.table{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;                                   
+	height: 100%;
+}
+thead{
+    height: 12%;
+    padding-top: 3%;
+}
+
+thead tr {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+thead tr th {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+thead a {
+    height: 80%;
+    width: 100%;
+}
+
+
+tbody{
+    display: flex;
+    flex-direction: column;
+    width: 100%;                                   
+	height: 100%;
+}
+
+.outras-linhas {
+    width: 100%;
+    height: 15%;
+    display:flex;
+    justify-content:space-between;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2em;
+}
+.celula-nomes {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 8%;
+}
+
+.celula-botoes {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    /* justify-content:start; */
+    align-items: center;
+    padding-left: 30%;
+}
+
+.celula-botoes i {
+    margin-right: 5%;
+}
+
+.celula-botoes a {
+    display: flex;
+    /* justify-content:start; */
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    text-decoration: none;
+}
+
+
+#novo-contato {
+    border:none;
+    border-radius: 0.5em;
+    color: #fff;
+    background-color:#294746;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    width: 43%;
+    height: 70%;
+}
+.container-listagem button {
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 70%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color:burlywood;
+    border: none;
+    border-radius: 0.3em;
+}
+
+.container-botao-vermais {
+    width: 38%;
+    height: 9%;
+    /* background-color: #000; */
+    padding-top: 2.5%;
+    padding-left: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.container-botao-vermais button{
+    /* font-size:medium; */
+    color: #000;
+    background-color:#e1f2f2;
+    width: 20%;
+    height: 80%;
+    border: none;
+    border-radius: 0.3em;
+}
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar contato</title>
+    <link rel="stylesheet" type="text/css" href="css/adicionar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pai-container" id="pai-container">
+
+        <div class="filho-container" id="filho-container">
+
+            <!--minha agenda-->
+            <div class="cabecalho-do-filho" id="cabecalho-do-filho">
+               
+                <h1 class="minha-agenda" id="minha-agenda"> Minha agenda </h1>
+            </div>
+
+            <!--foto de perfil e adicionar foto-->
+            <div class="add-contatos-container" id="add-contatos-pai">
+                <div class="foto-pefil" id="foto-pefil"> </div>
+                <div class="add-foto-container" id="add-foto"> <button class="button-add-foto" id="button-add-foto"> Adicionar foto </button> </div>
+            </div>
+            
+            <!--campos de input-->
+            <div class="container-input" id="container-input">
+               <form class="container-formulario" id="form">
+
+                   
+                   
+                <label class="nome-contato-label label">Nome</label> 
+                      
+                <input type="text" placeholder="Maria" class="input validateField" id="input-nome" name="nome">
+     
+                <label class="tipo-contato-label label">Tipo</label>
+          
+                <input type="text" placeholder="trabalho, faculdade.." class="input validateField" id="input-tipo" name="tipo">
+           
+                <label class="numero-contato-label label">Numero</label>
+          
+                <input type="text" placeholder="(99)9999999" class="input validateField" id="input-numero" name="telefone">
+    
+
+                    <div class="container-botao-salvar" id="save-container">
+                        <button id="button-voltar"> <i class="fa-solid fa-arrow-left"></i> voltar</button>
+                        <button type="submit" class="botao-salvar" id="save" > Salvar </button>
+                    </div>
+               </form>
+            </div>
+        
+        </div>
+
+    </div>
+    <script src="js/mainEdit.js"></script>
+   <script src="js/env.js"></script>
+</body>
+</html>

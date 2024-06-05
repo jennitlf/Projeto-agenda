@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contatos</title>
+    <link rel="stylesheet" type="text/css" href="css/contatos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="pai-container" id="pai-container">
+
+        <div class="filho-container" id="filho-container">
+
+            <!--titulo minha agenda-->
+            <div class="cabecalho-do-filho" id="cabecalho-do-filho">
+                
+                <h1 class="minha-agenda" id="minha-agenda"> Minha agenda </h1>
+            </div>
+            <!--campo de busca-->
+            <div class="container-pai-campo-de-busca">
+                <div class="container-filho-campo-de-busca"> 
+                    <input type="text" class="campo-de-busca" placeholder="Pesquisar contato" id="nome-pesquisar">
+                    <button type="submit" class="pesquisar" id="buscarNome">
+                        <i class="fa fa-search" id="lupaIcone"></i> 
+                    </button>
+                </div>
+            </div>
+            <div class="container-listagem" id="container-listagem">
+                <table id="table" class="table">  
+                   <thead>
+                        <tr class="primeira-linha">
+                            <th class="titulo1">Lista de contatos</th>
+                            <th class="titulo2"> <a href="http://127.0.0.1:5500/meu%20html/adicionarContato.html"> <button type="button" id="novo-contato"> <i class="fa-solid fa-plus"></i> Novo contato</button> </a> </th>
+                        </tr>
+                    </thead>
+                    <Tbody>
+                        
+                    </Tbody>
+                </table>
+            </div>
+            <div class="container-botao-vermais">
+                <button id="less"> <i class="fa-solid fa-angles-left"></i> menos </button>
+                <button id="more"> mais <i class="fa-solid fa-angles-right"></i> </button>
+                
+            </div>     
+
+        </div>
+
+    </div>
+    <script src="js/env.js"> </script>
+    <script src="js/mainListing.js"> </script>
+    <script src="js/scriptSearchContactListing.js"> </script>
+</body>
+</html>
