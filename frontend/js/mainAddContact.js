@@ -34,7 +34,7 @@ save.addEventListener('submit', function (event) {
                 throw new Error("Não foi possível salvar o contato");
             }
             window.alert("Contato Salvo com sucesso!")
-            return window.location.href = 'http://127.0.0.1:5500/meu%20html/contatos.html';
+            return window.location.href = 'http://127.0.0.1:5500/frontend/contatos.html';
         })
         .then(data => {
             console.log("dados do contato", data);
@@ -116,4 +116,4 @@ function clearErro(){
     }
 }
 
-const u = "u"
+const addrassButton = document.getElementById("full-addrass")

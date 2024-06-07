@@ -17,45 +17,51 @@
 
             <!--minha agenda-->
             <div class="cabecalho-do-filho" id="cabecalho-do-filho">
-               
                 <h1 class="minha-agenda" id="minha-agenda"> Minha agenda </h1>
             </div>
 
-            <!--foto de perfil e adicionar foto-->
-            <div class="add-contatos-container" id="add-contatos-pai">
-                <div class="foto-pefil" id="foto-pefil"> </div>
-                <div class="add-foto-container" id="add-foto"> <button class="button-add-foto" id="button-add-foto"> Adicionar foto </button> </div>
+            <div class="main-content">
+
+                <div class="container-input" id="container-input">
+
+                    <!--foto de perfil e adicionar foto-->
+                    <div class="add-contatos-container" id="add-contatos-pai">
+                        <div class="foto-pefil" id="foto-pefil"> </div>
+                        <div class="add-foto-container" id="add-foto"> <button class="button-add-foto" id="button-add-foto"> Adicionar foto </button> </div>
+                    </div>
+                    
+                    <!--campos de input-->
+                    <form class="container-formulario" id="form">
+
+                        
+                        <label class="nome-contato-label label">Nome</label>       
+                        <input type="text" placeholder="Maria" class="input validateField" id="input-nome" name="nome">
+            
+                        <label class="tipo-contato-label label">Tipo</label>
+                        <input type="text" placeholder="trabalho, faculdade.." class="input validateField" id="input-tipo" name="tipo">
+                
+                        <label class="numero-contato-label label">Numero</label>
+                        <input type="text" placeholder="(99)9999999" class="input validateField" id="input-numero" name="telefone">
+                        
+                        <label class="rua-addrass-label label">Endereço</label>  
+                        <input type="text"  placeholder="digite ou arraste no mapa" class="input" id="full-addrass-">
+
+
+                            <div class="container-botao-salvar" id="save-container">
+                                <a><button type="button" id="button-voltar"> <i class="fa-solid fa-arrow-left"></i>voltar</button> </a>
+                                <button type="submit" class="botao-salvar" id="save" > Salvar </button>
+                            </div>
+                    </form>
+
+                </div>
+                <div class="container-address" id="container-address"> </div>
             </div>
             
-            <!--campos de input-->
-            <div class="container-input" id="container-input">
-               <form class="container-formulario" id="form">
-
-                   
-                   
-                <label class="nome-contato-label label">Nome</label> 
-                      
-                <input type="text" placeholder="Maria" class="input validateField" id="input-nome" name="nome">
-     
-                <label class="tipo-contato-label label">Tipo</label>
-          
-                <input type="text" placeholder="trabalho, faculdade.." class="input validateField" id="input-tipo" name="tipo">
-           
-                <label class="numero-contato-label label">Numero</label>
-          
-                <input type="text" placeholder="(99)9999999" class="input validateField" id="input-numero" name="telefone">
-    
-
-                    <div class="container-botao-salvar" id="save-container">
-                        <button id="button-voltar"> <i class="fa-solid fa-arrow-left"></i> voltar</button>
-                        <button type="submit" class="botao-salvar" id="save" > Salvar </button>
-                    </div>
-               </form>
-            </div>
         
         </div>
 
     </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoCAQT9AgJVcp3ldgv7RRc4oorS6kOw0Q&callback=initMap"></script>
     <script src="js/mainEdit.js"></script>
    <script src="js/env.js"></script>
 </body>
