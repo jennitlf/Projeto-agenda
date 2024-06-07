@@ -16,6 +16,15 @@ export class Contact {
     @Column()
     number: string
 
+    @Column()
+    addrass: string
+
+    @Column({ type: 'decimal', precision: 9, scale: 6 })
+    latitude: number
+
+    @Column({ type: 'decimal', precision: 10, scale: 6 })
+    longitude: number
+
     @CreateDateColumn({type: 'timestamp'})
     created_at: Date
 
