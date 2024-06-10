@@ -10,6 +10,6 @@ async function bootstrap() {
     transform: true,                                 // quando um valor number vem da rota, vem como string, ele transforma em number novamente
   }))
   app.enableCors();                                  // libera acesso de dominios diferentes 
-  await app.listen(3000);                            // insere a rota da api na porta 3000 do servidor local
+  await app.listen(3010);                            // insere a rota da api na porta 3000 do servidor local
 }
 bootstrap();
