@@ -17,13 +17,13 @@ export class Contact {
     number: string
 
     @Column()
-    addrass: string
+    address: string
 
-    @Column({ type: 'decimal', precision: 9, scale: 6 })
-    latitude: number
+    @Column()
+    latitude: string
 
-    @Column({ type: 'decimal', precision: 10, scale: 6 })
-    longitude: number
+    @Column()
+    longitude: string
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Date

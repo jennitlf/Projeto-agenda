@@ -12,11 +12,11 @@ export class CreateContactDTO {
     readonly number: string
 
     @IsString()
-    readonly addrass: string
+    readonly address: string
 
-    @IsDecimal({decimal_digits: '6'})
-    readonly lat: number
+    @IsString()
+    readonly latitude: string
 
-    @IsDecimal({decimal_digits: '6'})
-    readonly long: number
+    @IsString()
+    readonly longitude: string
 }
