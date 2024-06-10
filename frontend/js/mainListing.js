@@ -55,7 +55,7 @@ function mountContactList(dataContact) {
         fetch(`${api}/${id}`)
             .then(response => response.json())
             .then(data => {
-                window.location.href = `${windowDetails}?id=${data.id}&name=${data.name}&type=${data.type}&number=${data.number}`;
+                window.location.href = `${windowDetails}?id=${data.id}&name=${data.name}&type=${data.type}&number=${data.number}&address=${data.address}&latitude=${data.latitude}&longitude=${data.longitude}`;
             })
             .catch(error => {
                 console.error('Erro ao obter dados:', error);

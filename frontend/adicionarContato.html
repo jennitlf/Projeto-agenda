@@ -42,7 +42,7 @@
                         <input type="text" placeholder="(99)9999999" class="input validateField" id="input-numero" name="telefone">
                         
                         <label class="rua-addrass-label label">Endereço</label>  
-                        <input type="text"  placeholder="digite ou arraste no mapa" class="input" id="full-addrass-">
+                        <input type="text"  placeholder="Selecione movendo o marcador no mapa" class="input validateField" id="full-address">
 
                         <div class="container-botao-salvar" id="save-container">
                             <a href="http://127.0.0.1:5500/frontend/contatos.html"><button type="button" id="button-voltar"> <i class="fa-solid fa-arrow-left"></i>voltar</button> </a>
@@ -57,7 +57,7 @@
         </div>
 
     </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoCAQT9AgJVcp3ldgv7RRc4oorS6kOw0Q&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoCAQT9AgJVcp3ldgv7RRc4oorS6kOw0Q&callback=initMap" async defer></script>
    <script src="js/mainAddContact.js"></script>
    <script src="js/env.js"></script>
 </body>

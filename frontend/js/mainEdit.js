@@ -1,9 +1,60 @@
 const queryParamsEdit = new URLSearchParams(window.location.search);
 
-const idEdit = queryParamsEdit.get('id')
-const nameEdit = queryParamsEdit.get('name')
-const typeEdit = queryParamsEdit.get('type')
-const numberEdit = queryParamsEdit.get('number')
+const idEdit = queryParamsEdit.get('id');
+const nameEdit = queryParamsEdit.get('name');
+const typeEdit = queryParamsEdit.get('type');
+const numberEdit = queryParamsEdit.get('number');
+const addressEdit = queryParamsEdit.get('address');
+const latEdit = parseFloat(queryParamsEdit.get('latitude'));
+const longEdit = parseFloat(queryParamsEdit.get('longitude'));
+
+
+//=============================map data================================
+
+const addrassButton = document.getElementById("full-address")
+addrassButton.disabled = true;
+
+let map;
+let marker;
+
+
+    //google maps api: display map
+map = new google.maps.Map(document.getElementById('container-address'), {
+    center: {lat: latEdit, lng: longEdit},
+    zoom: 16
+  });
+
+    //google maps api: display marker with permission to move it
+marker = new google.maps.Marker({
+    position: {lat: latEdit, lng: longEdit},
+    map: map,
+    draggable: true, // Allows the marker to be dragged
+});
+
+    //by moving the marker we will get latitude and longitude
+google.maps.event.addListener(marker, 'dragend', function(event) {
+    lat = this.getPosition().lat()
+    long = this.getPosition().lng()
+    
+    const geocoder = new google.maps.Geocoder();
+
+    //Geocoordinates api: we obtain the address using latitude and longitude
+    geocoder.geocode({'location': event.latLng}, function(results, status){
+
+        if(status === 'OK') {
+            if (results[0]) {
+                addressFull = results[0].formatted_address;
+                addrassButton.value = results[0].formatted_address;
+            } else {
+                addrassButton.value = 'Endereço não encontrado';
+                
+            }
+        } else {
+            console.error('Erro ao obter o endereço: ' + status)
+        }
+})
+
+});
 
 
 const save = document.getElementById('form')
@@ -14,11 +65,31 @@ save.addEventListener('submit', function (event) {
     const valueInputNameEdit = document.getElementById("input-nome").value;
     const valueInputTypeEdit = document.getElementById("input-tipo").value;
     const valueInputNumberEdit = document.getElementById("input-numero").value;
+    let addressFullstring = addressEdit
+    let latstring
+    let longstring
+
+    if (addressFull || lat || long ) {
+        addressFullstring = addressFull.toString();
+        latstring = lat.toString();
+        longstring = long.toString()
+    } else {
+        let div = document.createElement('div');
+            div.className = 'erro-validation';
+            let msg = document.createElement('h5');
+            msg.className = 'erro-validation-text';
+            msg.textContent = 'Campo obrigatório';
+            div.appendChild(msg);
+            addrassButton.insertAdjacentElement('afterend', div)
+    }
 
     const dataEditValue = {
         name: valueInputNameEdit,
         type: valueInputTypeEdit,
-        number: valueInputNumberEdit
+        number: valueInputNumberEdit,
+        address: addressFullstring,
+        latitude: latstring,
+        longitude: longstring
     };
 
     const jsonDataEditValue = JSON.stringify(dataEditValue);
@@ -42,7 +113,7 @@ save.addEventListener('submit', function (event) {
             return fetch(`${api}/${idEdit}`)
                     .then(response => response.json())
                     .then(data => {
-                        window.location.href = `${windowDetails}?id=${data.id}&name=${data.name}&type=${data.type}&number=${data.number}`;
+                        window.location.href = `${windowDetails}?id=${data.id}&name=${data.name}&type=${data.type}&number=${data.number}&address=${data.address}&latitude=${data.latitude}&longitude=${data.longitude}`;
                     })
             .catch(error => {
                 console.error('Erro ao obter dados:', error);
@@ -61,6 +132,7 @@ save.addEventListener('submit', function (event) {
 const nameInputValue = document.getElementById('input-nome').value = nameEdit
 const typeInputValue = document.getElementById('input-tipo').value = typeEdit
 const numberInputValue = document.getElementById('input-numero').value = numberEdit
+addrassButton.value = addressEdit
 
 const backToDetailsContact = document.getElementById('button-voltar').addEventListener('click', function () {
 
@@ -70,7 +142,7 @@ const backToDetailsContact = document.getElementById('button-voltar').addEventLi
             //disable window.alert
             const originalAlert = window.alert;
             window.alert = function() {};
-            window.location.href = `${windowDetails}?id=${data.id}&name=${data.name}&type=${data.type}&number=${data.number}`;
+            window.location.href = `${windowDetails}?id=${data.id}&name=${data.name}&type=${data.type}&number=${data.number}&address=${data.address}&latitude=${data.latitude}&longitude=${data.longitude}`;
         })
         .catch(error => {
             console.error('Erro ao obter dados:', error);

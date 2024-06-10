@@ -1,3 +1,55 @@
+
+
+//=============================map data================================
+
+const addrassButton = document.getElementById("full-address")
+addrassButton.disabled = true;
+
+let map;
+let marker;
+
+
+    //google maps api: display map
+map = new google.maps.Map(document.getElementById('container-address'), {
+    center: {lat: -3.114444, lng: -60.026583},
+    zoom: 14
+  });
+
+    //google maps api: display marker with permission to move it
+marker = new google.maps.Marker({
+    position: { lat: -3.114444, lng: -60.026583 },
+    map: map,
+    draggable: true, // Allows the marker to be dragged
+});
+
+    //by moving the marker we will get latitude and longitude
+google.maps.event.addListener(marker, 'dragend', function(event) {
+    lat = this.getPosition().lat()
+    long = this.getPosition().lng()
+    
+    const geocoder = new google.maps.Geocoder();
+
+    //Geocoordinates api: we obtain the address using latitude and longitude
+    geocoder.geocode({'location': event.latLng}, function(results, status){
+
+        if(status === 'OK') {
+            if (results[0]) {
+                addressFull = results[0].formatted_address;
+                addrassButton.value = results[0].formatted_address;
+            } else {
+                addrassButton.value = 'Endereço não encontrado';
+                
+            }
+        } else {
+            console.error('Erro ao obter o endereço: ' + status)
+        }
+})
+
+});
+
+
+//==========================form settings==============================
+
 const save = document.getElementById('form')
 
 const InputName = document.getElementById("input-nome");
@@ -10,11 +62,30 @@ save.addEventListener('submit', function (event) {
     const valueInputName = InputName.value;
     const valueInputType = InputType.value;
     const valueInputNumber = InputNumber.value;
-      
+    let addressFullstring
+    let latstring
+    let longstring
+    
+    if (addressFull || lat || long ) {
+        addressFullstring = addressFull.toString();
+        latstring = lat.toString();
+        longstring = long.toString()
+    } else {
+        let div = document.createElement('div');
+            div.className = 'erro-validation';
+            let msg = document.createElement('h5');
+            msg.className = 'erro-validation-text';
+            msg.textContent = 'Campo obrigatório';
+            div.appendChild(msg);
+            addrassButton.insertAdjacentElement('afterend', div)
+    }
     const data = {
         name: valueInputName,
         type: valueInputType,
-        number: valueInputNumber
+        number: valueInputNumber,
+        address: addressFullstring,
+        latitude: latstring,
+        longitude: longstring
     };
 
     const jsonData = JSON.stringify(data);
@@ -116,4 +187,4 @@ function clearErro(){
     }
 }
 
-const addrassButton = document.getElementById("full-addrass")
+
