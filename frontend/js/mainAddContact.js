@@ -7,6 +7,9 @@ addrassButton.disabled = true;
 
 let map;
 let marker;
+let addressFull
+let lat
+let long
 
 
     //google maps api: display map
@@ -47,6 +50,11 @@ google.maps.event.addListener(marker, 'dragend', function(event) {
 
 });
 
+//==========================input image================================
+
+const image = document.getElementById('input-add-foto')
+
+
 
 //==========================form settings==============================
 
@@ -56,8 +64,13 @@ const InputName = document.getElementById("input-nome");
 const InputType = document.getElementById("input-tipo");
 const InputNumber = document.getElementById("input-numero");
 
+
+    //submit form
+
 save.addEventListener('submit', function (event) {
+
     event.preventDefault();
+
 
     const valueInputName = InputName.value;
     const valueInputType = InputType.value;

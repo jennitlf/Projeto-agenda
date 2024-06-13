@@ -23,9 +23,10 @@
             <div class="main-content">
                 <div class="container-input" id="container-input">
                     <!--foto de perfil e adicionar foto-->
-                    <div class="add-contatos-container" id="add-contatos-pai">
-                        <div class="foto-pefil" id="foto-pefil"> </div>
-                        <div class="add-foto-container" id="add-foto"> <button class="button-add-foto" id="button-add-foto"> Adicionar foto </button> </div>
+                    <div class="image-container" id="add-contatos-pai">
+                        <div id="foto-pefil"> </div>
+                        <input type="file" id="input-add-foto" />
+                        <button onclick="document.getElementById('input-add-foto').click()" id="button-add-foto">Selecionar foto</button>
                     </div>
                 
                     <!--campos de input-->
@@ -39,7 +40,7 @@
                         <input type="text" placeholder="trabalho, faculdade.." class="input validateField" id="input-tipo" name="tipo">
 
                         <label class="numero-contato-label label">Numero</label>  
-                        <input type="text" placeholder="(99)9999999" class="input validateField" id="input-numero" name="telefone">
+                        <input  placeholder="(99)9999999" oninput="return formatPhone(this)"  maxlength="15" class="input validateField" id="input-numero" name="telefone">
                         
                         <label class="rua-addrass-label label">Endereço</label>  
                         <input type="text"  placeholder="Selecione movendo o marcador no mapa" class="input validateField" id="full-address">
@@ -59,6 +60,7 @@
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoCAQT9AgJVcp3ldgv7RRc4oorS6kOw0Q&callback=initMap" async defer></script>
    <script src="js/mainAddContact.js"></script>
+   <script src="js/validationPhone.js" ></script>
    <script src="js/env.js"></script>
 </body>
 </html>
